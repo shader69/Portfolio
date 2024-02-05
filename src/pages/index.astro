@@ -30,19 +30,22 @@ const projects = (await getCollection('work'))
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Bonjour, je suis Kyliann LLITERAS"
-					tagline="Je suis développeur web back-end, spécialisé en Node.js."
+					title="Bonjour 👋"
+					subtitle="Je suis Kyliann LLITERAS"
+					tagline="Développeur web back-end, spécialisé en API REST."
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill label="PHP"><Icon icon="php" size="1.33em" /></Pill>
+						<Pill label="Node.js"><Icon icon="node-js" size="1.33em" /></Pill>
+						<Pill label="Django"><Icon icon="django" size="1.33em" /></Pill>
+						<Pill label="MS SQL"><Icon icon="database" size="1.33em" /></Pill>
+						<Pill label="MongoDB"><Icon icon="mongo-db" size="1.33em" /></Pill>
 					</div>
 				</Hero>
 
 				<img
-					alt="Kyliann Lliteras smiling in a red plaid shirt and tortoise shell glasses"
+					alt="Kyliann Lliteras smiling in a black shirt."
 					width="480"
 					height="620"
 					src="/assets/portrait.jpg"
@@ -56,7 +59,7 @@ const projects = (await getCollection('work'))
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Quelques projets</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<p>Jetez un oeil ci-dessous à certains de mes projets phares pour des clients de ces dernières années.</p>
 				</header>
 
 				<div class="gallery">
@@ -73,7 +76,7 @@ const projects = (await getCollection('work'))
 
 				<div class="cta">
 					<CallToAction href="/work/">
-						View All
+						Voir plus de projets
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -93,7 +96,11 @@ const projects = (await getCollection('work'))
 	}
 
 	.roles {
-		display: none;
+		margin-top: 0.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
 	}
 
 	.hero img {
@@ -113,9 +120,7 @@ const projects = (await getCollection('work'))
 		}
 
 		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
+			justify-content: start;
 		}
 
 		.hero img {

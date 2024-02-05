@@ -1,4 +1,15 @@
-<div class="pill"><slot /></div>
+---
+interface Props {
+    label: string;
+}
+
+const { label = null } = Astro.props;
+---
+
+<div class="pill">
+    <slot />
+    <label>{label}</label>
+</div>
 
 <style>
 	.pill {
@@ -13,4 +24,14 @@
 		line-height: 1.35;
 		white-space: nowrap;
 	}
+
+    label {
+        display: none;
+    }
+
+    @media (min-width: 50em) {
+        label {
+            display: inline;
+        }
+    }
 </style>

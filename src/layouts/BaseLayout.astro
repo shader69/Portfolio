@@ -15,7 +15,7 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="fr">
 	<head>
 		<MainHead title={title} description={description} />
 	</head>
@@ -109,7 +109,7 @@ const { title, description } = Astro.props;
 				/* Deactivate custom backgrounds for high contrast users. */
 				.backgrounds {
 					background: none;
-					background-blend-mode: none;
+					background-blend-mode: unset;
 					--bg-gradient-size: none;
 				}
 			}
