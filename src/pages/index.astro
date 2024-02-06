@@ -35,7 +35,7 @@ const projects = (await getCollection('work'))
 					tagline="Développeur web back-end, spécialisé en API REST."
 					align="start"
 				>
-					<div class="roles">
+					<div class="pills">
 						<Pill label="PHP"><Icon icon="php" size="1.33em" /></Pill>
 						<Pill label="Node.js"><Icon icon="node-js" size="1.33em" /></Pill>
 						<Pill label="Django"><Icon icon="django" size="1.33em" /></Pill>
@@ -95,7 +95,7 @@ const projects = (await getCollection('work'))
 		gap: 2rem;
 	}
 
-	.roles {
+	.pills {
 		margin-top: 0.5rem;
 		display: flex;
 		flex-wrap: wrap;
@@ -119,7 +119,7 @@ const projects = (await getCollection('work'))
 			gap: 3.75rem;
 		}
 
-		.roles {
+		.pills {
 			justify-content: start;
 		}
 

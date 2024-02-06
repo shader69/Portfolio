@@ -8,19 +8,22 @@ const { label = null } = Astro.props;
 
 <div class="pill">
     <slot />
-    <label>{label}</label>
+    {
+        label ? <label>{label}</label> : ''
+    }
 </div>
 
 <style>
 	.pill {
-		display: flex;
-		padding: 0.5rem 1rem;
+		padding: 0.5rem;
+
+        font-size: var(--text-md);
+        display: flex;
 		gap: 0.5rem;
 		color: var(--accent-text-over);
 		border: 1px solid var(--accent-regular);
 		background-color: var(--accent-regular);
 		border-radius: 999rem;
-		font-size: var(--text-md);
 		line-height: 1.35;
 		white-space: nowrap;
 	}
@@ -30,6 +33,9 @@ const { label = null } = Astro.props;
     }
 
     @media (min-width: 50em) {
+        .pill {
+            padding: 0.5rem 1rem;
+        }
         label {
             display: inline;
         }
