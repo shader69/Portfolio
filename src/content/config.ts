@@ -12,4 +12,17 @@ export const collections = {
 			img_alt: z.string().optional(),
 		}),
 	}),
+	experience: defineCollection({
+		type: 'content',
+		schema: z.object({
+			type: z.string(),
+			companyName: z.string(),
+			companyUrl: z.string().url().optional(),
+			jobTitle: z.string(),
+			location: z.string(),
+			startDate: z.any(),
+			endDate: z.any(),
+			tags: z.array(z.string()),
+		}),
+	})
 };

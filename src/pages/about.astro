@@ -1,58 +1,56 @@
 ---
+import { getCollection } from 'astro:content';
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
+import Experience from '../components/Experience.astro';
+
+const experiences = await getCollection('experience');
 ---
 
-<BaseLayout title="À propos | Kyliann Lliteras" description="About Kyliann Lliteras Lorem Ipsum">
+<BaseLayout
+	title="À propos | Kyliann LLITERAS"
+	description="Le parcours de Kyliann LLITERAS"
+>
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
-				title="À propos"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+				title="À propos 🙋‍♂️"
+				tagline="Découvrez qui se cache derrière les lignes de code, et comment mon engagement peut bénéficier à votre projet."
 			>
 				<img
 					width="1553"
 					height="873"
 					src="/assets/at-work.jpg"
-					alt="Kyliann Lliteras at work with a colleague"
+					alt="A computer keyboard, and an appetizing cup of coffee"
 				/>
 			</Hero>
 
 			<section>
-				<h2 class="section-title">Background</h2>
+
+				<h2 class="section-title mb-3">Expériences professionnelles</h2>
+				<hr class="mb-3"/>
 				<div class="content">
-					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy.
-						Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
-					</p>
-					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
-					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
-					</p>
+					{
+						experiences.filter(e => e.data.type == "Job").map((experience) => (
+							<Experience class:list={['coucou']} experience={experience} />
+						))
+					}
 				</div>
 			</section>
+
 			<section>
-				<h2 class="section-title">Education</h2>
+
+				<h2 class="section-title mb-3">Parcours scolaire</h2>
+				<hr class="mb-3"/>
 				<div class="content">
-					<p>Corporis voluptates tenetur laudantium.</p>
-				</div>
-			</section>
-			<section>
-				<h2 class="section-title">Skills</h2>
-				<div class="content">
-					<p>officia unde omnis</p>
+					{
+						experiences.filter(e => e.data.type == "Education").map((experience) => (
+							<Experience experience={experience} />
+						))
+					}
 				</div>
 			</section>
 		</main>
@@ -115,6 +113,10 @@ import Hero from '../components/Hero.astro';
 		section {
 			display: contents;
 			font-size: var(--text-lg);
+		}
+
+		section hr {
+			display: none;
 		}
 	}
 </style>

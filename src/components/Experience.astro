@@ -1,0 +1,145 @@
+---
+import type { type CollectionEntry } from 'astro:content';
+
+import Icon from '../components/Icon.astro';
+import Pill from '../components/Pill.astro';
+
+interface Props {
+    experience: CollectionEntry<'experience'>;
+}
+
+const { experience } = Astro.props;
+const { Content } = await experience.render();
+---
+
+<div style="">
+    <div class="flex justify-between items-center flex-wrap">
+        <div class="flex items-center" style="gap: 0.5rem;">
+            <h3 class="text-xl font-semibold">
+                <a href={experience.data.companyUrl} target="_blank">
+                    {experience.data.companyName}
+                </a>
+            </h3>
+            <p class="flex items-center text-md">
+                <Icon icon="map-pin" /> {experience.data.location}
+            </p>
+        </div>
+        <p class="text-sm">
+            {experience.data.startDate} - {experience.data.endDate}
+        </p>
+    </div>
+    <div class="flex justify-between items-center flex-wrap">
+        <h3 class="text-xl font-semibold mt-3">{experience.data.jobTitle}</h3>
+        <div class="pills mt-3">
+            {
+                experience.data.tags.map((tag) => (
+                    <Pill>{tag}</Pill>
+                ))
+            }
+        </div>
+    </div>
+    <div class="content mt-3">
+        <Content/>
+    </div>
+</div>
+
+<hr style="margin-top: 2.5rem; margin-bottom: 2.5rem;"/>
+
+<style>
+    .justify-between {
+        justify-content: space-between;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .flex-wrap {
+        flex-wrap: wrap;
+    }
+    .flex {
+        display: flex;
+    }
+    .font-semibold {
+        font-weight: 600;
+    }
+    .text-xl {
+        font-size: var(--text-xl);
+        line-height: 1.75rem;
+    }
+    .text-md {
+        font-size: var(--text-md);
+        line-height: 1.50rem;
+    }
+    .text-sm {
+        font-size: var(--text-sm);
+        line-height: 1.25rem;
+    }
+
+    .pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        gap: 0.5rem;
+    }
+
+    /* ====================================================== */
+
+    .content > :global(* + *) {
+        margin-top: 1rem;
+    }
+
+    .content :global(h1),
+    .content :global(h2),
+    .content :global(h3),
+    .content :global(h4),
+    .content :global(h5) {
+        margin: 1.5rem 0;
+    }
+
+    .content :global(img) {
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-sm);
+        background: var(--gradient-subtle);
+        border: 1px solid var(--gray-800);
+    }
+
+    .content :global(blockquote) {
+        font-size: var(--text-md);
+        font-family: var(--font-brand);
+        line-height: 1.5;
+        padding-inline-start: 1.5rem;
+        border-inline-start: 0.25rem solid var(--accent-dark);
+        color: var(--gray-0);
+        background-color: var(--gray-900);
+    }
+
+    .back-link,
+    .content :global(a) {
+        text-decoration: 1px solid underline transparent;
+        text-underline-offset: 0.25em;
+        transition: text-decoration-color var(--theme-transition);
+    }
+
+    .back-link:hover,
+    .back-link:focus,
+    .content :global(a:hover),
+    .content :global(a:focus) {
+        text-decoration-color: currentColor;
+    }
+
+    @media (min-width: 50em) {
+        .back-link {
+            display: block;
+            align-self: flex-start;
+        }
+
+        .details {
+            flex-direction: row;
+            gap: 2.5rem;
+        }
+
+        .content :global(blockquote) {
+            font-size: var(--text-lg);
+        }
+    }
+
+</style>
