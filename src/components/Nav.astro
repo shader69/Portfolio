@@ -1,7 +1,8 @@
 ---
 import Icon from './Icon.astro';
 import ThemeToggle from './ThemeToggle.astro';
-import type { iconPaths } from './IconPaths';
+
+import { appInfo } from '../data/info';
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -11,12 +12,7 @@ const textLinks: { label: string; href: string }[] = [
 ];
 
 /** Icon links to social media — edit these with links to your profiles! */
-const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'GitHub', href: 'https://github.com/shader69', icon: 'github-logo' },
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/kyliann-l-a0ba89142', icon: 'linkedin-logo' },
-	{ label: 'Discord', href: 'https://discordapp.com/users/226688624207462420', icon: 'discord-logo' },
-	{ label: 'Twitter', href: 'https://twitter.com/shader96', icon: 'twitter-logo' },
-];
+const iconLinks = appInfo.socialMedia;
 ---
 
 <nav>
@@ -25,7 +21,7 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 			<astro-dev-toolbar-icon>
 				<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="30" height="25" filtersec="colorsb525973432" class="image-svg-svg primary" style="overflow: visible;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141.8699951171875 120.70999908447266"><title>资源 68</title><path fill="#fcb51f" fill-rule="evenodd" d="M99.35 60.35L141.87 0H97.12L54.6 60.35l42.52 60.36h44.75L99.35 60.35z"/><path fill="#1c3e69" fill-rule="evenodd" d="M41.56 60.35l21.18-30.07V0H21.19v30.28L0 60.35l21.19 30.08v30.28h41.55V90.43L41.56 60.35z"/><path fill="#1c3e69" fill-rule="evenodd" d="M0 60.35h41.56l21.18-30.07H21.19L0 60.35z"/><path fill="#133157" d="M21.19 0h41.56v30.28H21.19z"/><path fill="#133157" fill-rule="evenodd" d="M41.56 60.35H0l21.19 30.08h41.55L41.56 60.35z"/><path fill="#fcb51f" fill-rule="evenodd" d="M54.6 60.35h44.75L141.87 0H97.12L54.6 60.35z"/><path fill="#de9800" fill-rule="evenodd" d="M141.87 120.71L99.35 60.35H54.6l42.52 60.36h44.75z"/><path fill="#1c3e69" d="M21.19 90.43h41.56v30.28H21.19z"/></svg></svg>
 			</astro-dev-toolbar-icon>
-			Kyliann Lliteras
+			{appInfo.myName}
 		</a>
 		<menu-button>
 			<template>

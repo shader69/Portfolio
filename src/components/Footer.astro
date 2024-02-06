@@ -1,6 +1,10 @@
 ---
 import Icon from './Icon.astro';
 const currentYear = new Date().getFullYear();
+import { appInfo } from '../data/info';
+
+/** Icon links to social media — edit these with links to your profiles! */
+const iconLinks = appInfo.socialMedia;
 ---
 
 <footer>
@@ -9,15 +13,17 @@ const currentYear = new Date().getFullYear();
 			Portfolio réalisé avec <a href="https://astro.build/">Astro</a>
 			<Icon icon="rocket-launch" size="1.2em" />
 		</p>
-		<p>&copy; {currentYear} Kyliann Lliteras</p>
+		<p>&copy; {currentYear} {appInfo.myName}</p>
 	</div>
 	<p class="socials">
-		<a href="https://github.com/shader69" target="_blank"> GitHub</a>
-		<a href="https://www.linkedin.com/in/kyliann-l-a0ba89142" target="_blank"> LinkedIn</a>
-		<a href="https://discordapp.com/users/226688624207462420" target="_blank"> Discord</a>
-		<a href="https://twitter.com/shader96" target="_blank"> Twitter</a>
+		{
+			iconLinks.map(({ href, icon, label }) => (
+				<a href={href} target="_blank">{label}</a>
+			))
+		}
 	</p>
 </footer>
+
 <style>
 	footer {
 		display: flex;
