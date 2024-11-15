@@ -5,14 +5,14 @@ companyUrl: https://syartec.com/
 jobTitle: Développeur Web Fullstack
 location: Aix-en-Provence
 startDate: Sept 2020
-endDate: Aujourd'hui
+endDate: Fév 2024
 tags:
   - PHP
   - MS SQL
   - JQuery
   - Bootstrap
 ---
-> J'occupe le rôle de développeur web fullstack confirmé chez <a href="https://syartec.com/" target="_blank">Syartec</a>, contribuant activement au succès de l'outil <a href="https://www.iziflo.com/" target="_blank">iziflo</a>.
+> J'ai occupé le rôle de développeur web fullstack confirmé chez <a href="https://syartec.com/" target="_blank">Syartec</a>, contribuant activement au succès de l'outil <a href="https://www.iziflo.com/" target="_blank">iziflo</a>.
 >
 > Mon parcours m'a permis de jouer un rôle central dans le développement de ce CRM dédié aux concessions automobiles, avec des déploiements réussis dans une quarantaine de pays.
 
