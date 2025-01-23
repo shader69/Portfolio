@@ -1,0 +1,20 @@
+.content h1 {
+    font-size: var(--text-3xl);
+}
+.content h2 {
+    font-size: var(--text-2xl);
+}
+.content h3 {
+    font-size: var(--text-xl);
+}
+.content h4 {
+    font-size: var(--text-lg);
+}
+.content h5 {
+    font-size: var(--text-md);
+}
+
+.content pre {
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
