@@ -2,6 +2,7 @@ export const appInfo = {
     myName: "Kyliann LLITERAS",
     jobDescription: "Développeur web back-end",
     socialMedia: [
+        { label: 'Malt', href: 'https://www.malt.fr/profile/kyliannlliteras', icon: 'malt-logo' },
         { label: 'GitHub', href: 'https://github.com/shader69', icon: 'github-logo' },
         { label: 'LinkedIn', href: 'https://www.linkedin.com/in/kyliann-l-a0ba89142', icon: 'linkedin-logo' },
         { label: 'Discord', href: 'https://discordapp.com/users/226688624207462420', icon: 'discord-logo' },
